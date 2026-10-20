@@ -43,6 +43,15 @@ export function isPlaying(id: string) {
   return playing.has(id)
 }
 
+export function playingIds() {
+  return [...playing.keys()]
+}
+
+/** Create/resume the audio context. Call from a click so the browser allows sound later (speaker mode). */
+export function unlock() {
+  context()
+}
+
 export function setMasterVolume(v: number) {
   masterLevel = v
   if (!ctx || !master) return

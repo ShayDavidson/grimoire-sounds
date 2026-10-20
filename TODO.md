@@ -1,7 +1,7 @@
 # TODO
 
 Legend: `[ ]` todo · `[/]` in progress · `[x]` done. Shay owns `U-` tasks (decisions, accounts), Claude owns `C-` tasks.
-**Unblocked now:** Shay → U-03. Claude → C-06.
+**Unblocked now:** Shay → U-03, U-04. Claude → C-06.
 
 ## Shay · P0 (now)
 
@@ -11,12 +11,17 @@ Legend: `[ ]` todo · `[/]` in progress · `[x]` done. Shay owns `U-` tasks (dec
 ## Shay · P1 (next)
 
 - [ ] U-03 Try every pad on your phone before game night; list any sound to swap
+- [ ] U-04 Try remote mode: laptop as speaker (with Spotify), phone as remote
 
 ## Claude · Phase 0 — Setup
 
 - [x] C-01 Scaffold Vite + React + TS app with Web Audio engine and placeholder pads
 - [x] C-02 Deploy to GitHub Pages on every push to main (moved off Cloudflare)
 - [x] C-03 Public GitHub repo with CI (build + gitleaks)
+
+## Claude · Phase 2 — Remote
+
+- [x] C-07 Remote mode: phone controls a laptop speaker (PeerJS)
 
 ## Claude · Phase 1 — Sounds and modes
 

@@ -10,3 +10,4 @@ Decisions here override the original brief.
 | 2026-10-20 | Hosting moved from Cloudflare Workers to **GitHub Pages**; the Worker was deleted ([ADR 0002](adr/0002-github-pages.md)). |
 | 2026-10-20 | Sounds: 5 generated with ElevenLabs, 5 CC0 from Freesound, 1 from Pixabay (ElevenLabs rate limits blocked the rest). Sources in docs/wiki/sounds.md. |
 | 2026-10-20 | Sound tweaks after first listen: wolf (sounded like an air-raid siren) and crickets replaced with real Freesound recordings, punchier slayer, fanfare for nominations, tick/tock voting, "Executed" renamed "Announcement". |
+| 2026-10-20 | Remote mode: a laptop plays the sounds (and Spotify), the phone is a remote. Peer-to-peer via PeerJS with its free public broker; no backend ([ADR 0003](adr/0003-remote-mode-peerjs.md)). |
