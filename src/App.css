@@ -85,14 +85,14 @@
 }
 
 .pad.tick:active {
-  background: var(--surface-hover);
-  border-color: var(--gold);
+  background: color-mix(in srgb, var(--pad) 30%, var(--surface));
+  border-color: var(--pad);
 }
 
 .tick-count {
   font-family: var(--serif);
   font-size: 2rem;
-  color: var(--gold);
+  color: var(--pad);
   line-height: 1;
 }
 
@@ -104,8 +104,10 @@
   justify-content: center;
   gap: 6px;
   padding: 12px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  --pad: var(--gold);
+  background: color-mix(in srgb, var(--pad) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--pad) 45%, transparent);
+  border-top: 3px solid var(--pad);
   border-radius: 16px;
   cursor: pointer;
   transition: background 0.15s, box-shadow 0.15s, border-color 0.15s;
@@ -113,23 +115,22 @@
 }
 
 .pad:hover {
-  background: var(--surface-hover);
+  background: color-mix(in srgb, var(--pad) 22%, var(--surface));
 }
 
 .pad.playing {
-  border-color: #c23030;
-  box-shadow: 0 0 24px var(--blood-glow), inset 0 0 18px var(--blood-glow);
+  background: color-mix(in srgb, var(--pad) 30%, var(--surface));
+  border-color: var(--pad);
+  box-shadow:
+    0 0 24px color-mix(in srgb, var(--pad) 55%, transparent),
+    inset 0 0 18px color-mix(in srgb, var(--pad) 35%, transparent);
 }
 
 .pad-icon {
   width: 36px;
   height: 36px;
-  color: var(--gold);
+  color: var(--pad);
   stroke-width: 1.5;
-}
-
-.pad.playing .pad-icon {
-  color: #ff6b6b;
 }
 
 .pad-label {
