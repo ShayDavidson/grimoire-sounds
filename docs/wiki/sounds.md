@@ -11,10 +11,10 @@ public use.
 | `morning.mp3` | Morning | ElevenLabs SFX v2: "Rooster crowing loudly at dawn on a farm, one long cock-a-doodle-doo, birds chirping softly" | ElevenLabs paid plan | 4s |
 | `announcement.mp3` | Announcement | ElevenLabs SFX v2: "Medieval execution snare drumroll building up, ending in one heavy wooden trapdoor thud" | ElevenLabs paid plan | 5s. Was "Executed" |
 | `protected.mp3` | Protected | [Choir of Voices – Single Chord](https://freesound.org/people/bone666138/sounds/274121/) by bone666138 (Freesound) | CC0 | Trimmed to 3s, fade-out |
-| `slayer.mp3` | Slayer shot | [Crossbow Shot](https://freesound.org/people/spookymodem/sounds/249810/) by spookymodem + [arrow into wood](https://freesound.org/people/JoeDinesSound/sounds/534956/) by JoeDinesSound (Freesound) + synthesized 55 Hz thump | CC0 | Layered, bass-boosted and compressed for punch, 1.4s |
-| `nomination.mp3` | Nomination | [Fanfare](https://freesound.org/people/Arcorias/sounds/770801/) by Arcorias (Freesound) | CC0 | 3.3s, compressed and louder (-12 LUFS). Replaced the gavel |
-| `vote-tick.mp3` | Voting → Tick (odd taps) | [clock-tick-01](https://freesound.org/people/pbimal/sounds/534094/) by pbimal (Freesound) + synthesized 70 Hz thump | CC0 | Click layered with a deep thump, short echo, compressed; 1.1s |
-| `vote-tock.mp3` | Voting → Tock (even taps) | Same click pitched to 72% + synthesized 52 Hz thump | CC0 | Lower partner of the tick; 1.1s |
+| `slayer.mp3` | Slayer shot | [Crossbow Firing and Hitting Target](https://freesound.org/people/Ali_6868/sounds/384919/) by Ali_6868 + [arrow into wood](https://freesound.org/people/JoeDinesSound/sounds/534956/) by JoeDinesSound (Freesound) | CC0 | String TING brightened; impact layered on the hit at 0.74s with bass boost; compressed, -11 LUFS; 1.3s |
+| `nomination.mp3` | Nomination | [Knocking on Wood Door (1)](https://freesound.org/people/Flem0527/sounds/629987/) by Flem0527 (Freesound) | CC0 | Three knocks pitched down to 85% (bigger door), castle-hall echo, -12 LUFS; 3s. Replaced the fanfare (off-theme) |
+| `vote-tick.mp3` | Voting → Tick (odd taps) | [Ominous Grandfather Clock Pendulum Ticking](https://freesound.org/people/brktkrgll/sounds/856170/) by brktkrgll (Freesound) | CC0 | One beat (0.95–1.8s), low-shelf +5 dB; 0.9s |
+| `vote-tock.mp3` | Voting → Tock (even taps) | Same recording, the next beat (1.95–2.8s) | CC0 | 0.9s |
 | `vote-end.mp3` | Voting → End vote | [bec low bell solo](https://freesound.org/people/HMTSCCSound/sounds/554655/) by HMTSCCSound (Freesound) | CC0 | Trimmed to 8s, fade-out |
 | `dun-dun-dun.mp3` | Dun dun DUN | [Dramatic Dun Dun Dun](https://pixabay.com/sound-effects/musical-dramatic-dun-dun-dun-460379/) by MrDwarf92 (Pixabay) | Pixabay Content License (free, commercial, no credit) | 3s |
 
