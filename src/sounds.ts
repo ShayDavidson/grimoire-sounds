@@ -1,5 +1,5 @@
 // The sound catalog. Put the file in public/sounds/ and add an entry here.
-// All current sounds were generated with ElevenLabs Sound Effects v2; prompts are in docs/wiki/sounds.md.
+// Sources and licences for every file are in docs/wiki/sounds.md.
 
 import type { LucideIcon } from 'lucide-react'
 import { Axe, Bell, Crosshair, Drama, Gavel, Hand, Moon, ShieldPlus, Skull, Sunrise, Sunset } from 'lucide-react'
