@@ -2,7 +2,7 @@
 // All current sounds were generated with ElevenLabs Sound Effects v2; prompts are in docs/wiki/sounds.md.
 
 import type { LucideIcon } from 'lucide-react'
-import { Axe, Bell, Crosshair, Drama, Gavel, Hand, Moon, ShieldPlus, Skull, Sunset } from 'lucide-react'
+import { Axe, Bell, Crosshair, Drama, Gavel, Hand, Moon, ShieldPlus, Skull, Sunrise, Sunset } from 'lucide-react'
 
 export type SoundKind = 'oneshot' | 'loop'
 
@@ -39,6 +39,7 @@ export const DAY: SoundGroup = {
   id: 'day',
   label: 'Day',
   sounds: [
+    { id: 'morning', label: 'Morning', kind: 'oneshot', icon: Sunrise, src: 'sounds/morning.mp3' },
     { id: 'slayer', label: 'Slayer shot', kind: 'oneshot', icon: Crosshair, src: 'sounds/slayer.mp3' },
     { id: 'nomination', label: 'Nomination', kind: 'oneshot', icon: Gavel, src: 'sounds/nomination.mp3' },
     { id: 'execution', label: 'Executed', kind: 'oneshot', icon: Axe, src: 'sounds/execution.mp3' },

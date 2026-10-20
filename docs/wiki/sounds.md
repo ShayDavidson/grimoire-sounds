@@ -9,6 +9,7 @@ flow "Grimoire Sounds — BOTC SFX". Generated audio from a paid ElevenLabs plan
 | `night-falls.mp3` | Night falls | Night | Lone wolf howling at night, long eerie howl echoing across distant hills | 6s |
 | `demon-kill.mp3` | Killed by the Demon | Night | Deep monstrous demon growl rising into a dark whoosh, ending in a low heavy thud | 4s |
 | `protected.mp3` | Protected | Night | Holy angelic choir chord swelling with shimmering bright chimes, warm and heavenly | 4s |
+| `morning.mp3` | Morning | Day | Rooster crowing loudly at dawn on a farm, one long cock-a-doodle-doo, birds chirping softly | 4s |
 | `slayer.mp3` | Slayer shot | Day | Crossbow firing, sharp string twang and fast bolt whoosh, hitting wood with a hard thunk | 2.5s |
 | `nomination.mp3` | Nomination | Day | Wooden judge's gavel striking a sound block twice, sharp and authoritative, small courtroom | 2s |
 | `execution.mp3` | Executed | Day | Medieval execution snare drumroll building up, ending in one heavy wooden trapdoor thud | 5s |
