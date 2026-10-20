@@ -6,7 +6,7 @@ public use.
 | File | Pad | Source | Licence | Notes |
 | --- | --- | --- | --- | --- |
 | `night-approaching.mp3` | Night approaching (loop) | [Crickets chirping at Night 003](https://freesound.org/people/Borgory/sounds/751470/) by Borgory (Freesound) | CC0 | 60s cut (from 10s), made seamless with a 2s crossfade |
-| `night-falls.mp3` | Night falls | [wolfs.wav](https://freesound.org/people/ondrosik/sounds/143568/) by ondrosik (Freesound), real wolf pack | CC0 | First 7s, fade-out. Replaced the ElevenLabs howl, which sounded like an air-raid siren |
+| `night-falls.mp3` | Night falls | [Howl_Echo.wav](https://freesound.org/people/taure/sounds/380156/) by taure (Freesound), single wolf | CC0 | Two howls (2.2–13.2s), 11s with fades. Earlier tries: ElevenLabs howl (sounded like an air-raid siren), then a wolf pack (Shay preferred one wolf) |
 | `demon-kill.mp3` | Killed by the Demon | ElevenLabs SFX v2: "Deep monstrous demon growl rising into a dark whoosh, ending in a low heavy thud" | ElevenLabs paid plan | 4s |
 | `morning.mp3` | Morning | ElevenLabs SFX v2: "Rooster crowing loudly at dawn on a farm, one long cock-a-doodle-doo, birds chirping softly" | ElevenLabs paid plan | 4s |
 | `announcement.mp3` | Announcement | ElevenLabs SFX v2: "Medieval execution snare drumroll building up, ending in one heavy wooden trapdoor thud" | ElevenLabs paid plan | 5s. Was "Executed" |
