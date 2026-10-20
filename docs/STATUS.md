@@ -9,3 +9,4 @@ Decisions here override the original brief.
 | 2026-10-20 | Audio via one Web Audio graph (per-sound gain → master gain) rather than `<audio>` tags, for overlap, loops and fades. |
 | 2026-10-20 | Hosting moved from Cloudflare Workers to **GitHub Pages**; the Worker was deleted ([ADR 0002](adr/0002-github-pages.md)). |
 | 2026-10-20 | Sounds: 5 generated with ElevenLabs, 5 CC0 from Freesound, 1 from Pixabay (ElevenLabs rate limits blocked the rest). Sources in docs/wiki/sounds.md. |
+| 2026-10-20 | Sound tweaks after first listen: wolf (sounded like an air-raid siren) and crickets replaced with real Freesound recordings, punchier slayer, fanfare for nominations, tick/tock voting, "Executed" renamed "Announcement". |

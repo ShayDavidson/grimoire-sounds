@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from 'react'
-import { ALL_SOUNDS, DAY, NIGHT, VOTE_END, VOTE_TICK, type Sound, type SoundGroup } from './sounds'
+import { ALL_SOUNDS, DAY, NIGHT, VOTE_END, VOTE_TICK, VOTE_TOCK, type Sound, type SoundGroup } from './sounds'
 import { isPlaying, play, preload, setMasterVolume, stop, stopAll, subscribe } from './audio'
 import './App.css'
 
@@ -32,7 +32,7 @@ function Group({ group }: { group: SoundGroup }) {
   )
 }
 
-/** Voting: one tick per player as the Storyteller's hand moves around the circle, then the bell. */
+/** Voting: one tick/tock per player as the Storyteller's hand moves around the circle, then the bell. */
 function Voting() {
   const [ticks, setTicks] = useState(0)
   const TickIcon = VOTE_TICK.icon
@@ -45,8 +45,9 @@ function Voting() {
           type="button"
           className="pad tick"
           onClick={() => {
+            // Odd taps tick, even taps tock.
+            void play(ticks % 2 === 0 ? VOTE_TICK : VOTE_TOCK)
             setTicks((n) => n + 1)
-            void play(VOTE_TICK)
           }}
         >
           <TickIcon className="pad-icon" aria-hidden />
