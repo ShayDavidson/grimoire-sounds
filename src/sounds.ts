@@ -7,7 +7,7 @@ export interface Sound {
   id: string
   label: string
   kind: SoundKind
-  /** Path under public/, e.g. "/sounds/bell.mp3". */
+  /** Path under public/, without a leading slash, e.g. "sounds/bell.mp3". */
   src?: string
   /** Placeholder synth used when there is no file yet. */
   synth?: 'bell' | 'drone'

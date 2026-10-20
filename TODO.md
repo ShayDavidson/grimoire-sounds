@@ -11,7 +11,7 @@ Legend: `[ ]` todo · `[/]` in progress · `[x]` done. Shay owns `U-` tasks (dec
 ## Claude · Phase 0 — Setup
 
 - [x] C-01 Scaffold Vite + React + TS app with Web Audio engine and placeholder pads
-- [x] C-02 Deploy to Cloudflare Workers (static assets)
+- [x] C-02 Deploy to GitHub Pages on every push to main (moved off Cloudflare)
 - [x] C-03 Public GitHub repo with CI (build + gitleaks)
 
 ## Claude · Phase 1 — Sounds and modes

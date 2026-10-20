@@ -7,4 +7,4 @@
   and cached. Starting a sound that's already playing restarts it; stopping fades out over ~0.3s.
   Components subscribe to play/stop changes to highlight active pads.
 - **`src/App.tsx`** renders the pad grid, master volume and "Stop all".
-- **Hosting:** Cloudflare Worker with static assets only (no Worker script), SPA fallback.
+- **Hosting:** GitHub Pages at `/grimoire-sounds/` (Vite `base`). Sound `src` paths are relative and get `import.meta.env.BASE_URL` prepended.

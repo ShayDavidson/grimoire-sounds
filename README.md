@@ -3,7 +3,7 @@
 A public web soundboard for running **Blood on the Clocktower** game nights: tap a pad to play a sound
 effect or start an ambience loop.
 
-**Status:** skeleton live on Cloudflare Workers with two synthesized test sounds. The real sounds and
+**Status:** skeleton live on GitHub Pages (https://shaydavidson.github.io/grimoire-sounds/) with two synthesized test sounds. The real sounds and
 modes come next (see [TODO.md](TODO.md)).
 
 ## Sources of truth
@@ -28,7 +28,7 @@ src/sounds.ts   sound catalog (add entries here)
 src/audio.ts    Web Audio engine: play, stop, loops, master volume
 src/App.tsx     soundboard UI
 public/sounds/  audio files
-wrangler.jsonc  Cloudflare Worker (static assets) config
+.github/        CI and the GitHub Pages deploy workflow
 ```
 
 ## Local setup
@@ -36,6 +36,5 @@ wrangler.jsonc  Cloudflare Worker (static assets) config
 ```bash
 npm install
 npm run dev        # Vite dev server
-npm run check      # lint + typecheck + build
-npm run deploy     # build and deploy to Cloudflare (needs `wrangler login`)
+npm run check      # lint + typecheck + build; pushing to main deploys to GitHub Pages
 ```

@@ -97,7 +97,7 @@ export async function play(sound: Sound) {
   let duration: number
   if (sound.src) {
     const source = ctx.createBufferSource()
-    source.buffer = await load(sound.src)
+    source.buffer = await load(import.meta.env.BASE_URL + sound.src)
     source.loop = loop
     source.connect(gain)
     source.start()
