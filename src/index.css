@@ -1,0 +1,34 @@
+:root {
+  --bg: #0e0b10;
+  --surface: #1a1520;
+  --surface-hover: #241c2c;
+  --border: #3a2e44;
+  --text: #e9e2d0;
+  --muted: #9b8fa8;
+  --gold: #c9a227;
+  --blood: #8b1a1a;
+  --blood-glow: rgba(200, 30, 30, 0.45);
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  color-scheme: dark;
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: radial-gradient(ellipse at top, #22152a 0%, var(--bg) 60%);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
