@@ -1,12 +1,16 @@
 # TODO
 
 Legend: `[ ]` todo · `[/]` in progress · `[x]` done. Shay owns `U-` tasks (decisions, accounts), Claude owns `C-` tasks.
-**Unblocked now:** Shay → U-01, U-02. Claude → waiting on U-01.
+**Unblocked now:** Shay → U-03. Claude → C-06.
 
 ## Shay · P0 (now)
 
-- [ ] U-01 List the sounds and modes you want (e.g. night/day phases, deaths, nominations, execution)
-- [ ] U-02 Decide where sounds come from (Freesound CC0, a paid pack, your own recordings)
+- [x] U-01 List the sounds and modes you want
+- [x] U-02 Decide where sounds come from (ElevenLabs + Freesound CC0 + Pixabay)
+
+## Shay · P1 (next)
+
+- [ ] U-03 Try every pad on your phone before game night; list any sound to swap
 
 ## Claude · Phase 0 — Setup
 
@@ -16,9 +20,9 @@ Legend: `[ ]` todo · `[/]` in progress · `[x]` done. Shay owns `U-` tasks (dec
 
 ## Claude · Phase 1 — Sounds and modes
 
-- [ ] C-04 Add the chosen sound files and catalog entries
+- [x] C-04 Add the chosen sound files and catalog entries
   - needs: U-01, U-02
-- [ ] C-05 Build modes / layouts from Shay's spec
+- [x] C-05 Night / Day / Voting groups with icons and a voting tick counter
   - needs: U-01
 - [ ] C-06 Preload sounds and make the site work offline (PWA) for game nights with bad Wi-Fi
   - needs: C-04

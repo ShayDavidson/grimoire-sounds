@@ -1,23 +1,87 @@
 import { useEffect, useReducer, useState } from 'react'
-import { SOUNDS, type Sound } from './sounds'
-import { isPlaying, play, setMasterVolume, stop, stopAll, subscribe } from './audio'
+import { ALL_SOUNDS, DAY, NIGHT, VOTE_END, VOTE_TICK, type Sound, type SoundGroup } from './sounds'
+import { isPlaying, play, preload, setMasterVolume, stop, stopAll, subscribe } from './audio'
 import './App.css'
+
+function Pad({ sound }: { sound: Sound }) {
+  const Icon = sound.icon
+  const active = isPlaying(sound.id)
+  return (
+    <button
+      type="button"
+      className={`pad${active ? ' playing' : ''}`}
+      onClick={() => (active ? stop(sound.id) : void play(sound))}
+    >
+      <Icon className="pad-icon" aria-hidden />
+      <span className="pad-label">{sound.label}</span>
+      {sound.kind === 'loop' && <span className="pad-kind">Loop</span>}
+    </button>
+  )
+}
+
+function Group({ group }: { group: SoundGroup }) {
+  return (
+    <section className="group">
+      <h2>{group.label}</h2>
+      <div className="grid">
+        {group.sounds.map((sound) => (
+          <Pad key={sound.id} sound={sound} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+/** Voting: one tick per player as the Storyteller's hand moves around the circle, then the bell. */
+function Voting() {
+  const [ticks, setTicks] = useState(0)
+  const TickIcon = VOTE_TICK.icon
+  const EndIcon = VOTE_END.icon
+  return (
+    <section className="group">
+      <h2>Voting</h2>
+      <div className="voting">
+        <button
+          type="button"
+          className="pad tick"
+          onClick={() => {
+            setTicks((n) => n + 1)
+            void play(VOTE_TICK)
+          }}
+        >
+          <TickIcon className="pad-icon" aria-hidden />
+          <span className="pad-label">Tick</span>
+          <span className="tick-count" aria-live="polite">
+            {ticks}
+          </span>
+        </button>
+        <button
+          type="button"
+          className={`pad${isPlaying(VOTE_END.id) ? ' playing' : ''}`}
+          onClick={() => {
+            setTicks(0)
+            void play(VOTE_END)
+          }}
+        >
+          <EndIcon className="pad-icon" aria-hidden />
+          <span className="pad-label">End vote</span>
+        </button>
+      </div>
+    </section>
+  )
+}
 
 function App() {
   const [, rerender] = useReducer((n: number) => n + 1, 0)
   const [volume, setVolume] = useState(0.8)
 
   useEffect(() => {
+    preload(ALL_SOUNDS)
     const unsubscribe = subscribe(rerender)
     return () => {
       unsubscribe()
     }
   }, [])
-
-  const toggle = (sound: Sound) => {
-    if (isPlaying(sound.id)) stop(sound.id)
-    else void play(sound)
-  }
 
   return (
     <main className="app">
@@ -47,19 +111,9 @@ function App() {
         </button>
       </section>
 
-      <section className="grid">
-        {SOUNDS.map((sound) => (
-          <button
-            key={sound.id}
-            type="button"
-            className={`pad${isPlaying(sound.id) ? ' playing' : ''}`}
-            onClick={() => toggle(sound)}
-          >
-            <span className="pad-label">{sound.label}</span>
-            <span className="pad-kind">{sound.kind === 'loop' ? 'Loop' : 'One-shot'}</span>
-          </button>
-        ))}
-      </section>
+      <Group group={NIGHT} />
+      <Group group={DAY} />
+      <Voting />
     </main>
   )
 }
