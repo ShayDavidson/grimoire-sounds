@@ -6,5 +6,5 @@
   user gesture). Graph: source → per-sound gain → master gain → speakers. Files are fetched and decoded once
   and cached. Starting a sound that's already playing restarts it; stopping fades out over ~0.3s.
   Components subscribe to play/stop changes to highlight active pads.
-- **`src/App.tsx`** renders the pad grid, master volume and "Stop all".
+- **`src/App.tsx`** renders the pad groups, voting panel, master volume and "Stop all". Each sound has an accent `color` (set as the `--pad` CSS variable) for its icon, tint, top border and playing glow.
 - **Hosting:** GitHub Pages at `/grimoire-sounds/` (Vite `base`). Sound `src` paths are relative and get `import.meta.env.BASE_URL` prepended.

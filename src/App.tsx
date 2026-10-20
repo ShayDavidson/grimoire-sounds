@@ -1,7 +1,9 @@
-import { useEffect, useReducer, useState } from 'react'
+import { useEffect, useReducer, useState, type CSSProperties } from 'react'
 import { ALL_SOUNDS, DAY, NIGHT, VOTE_END, VOTE_TICK, VOTE_TOCK, type Sound, type SoundGroup } from './sounds'
 import { isPlaying, play, preload, setMasterVolume, stop, stopAll, subscribe } from './audio'
 import './App.css'
+
+const accent = (sound: Sound) => ({ '--pad': sound.color }) as CSSProperties
 
 function Pad({ sound }: { sound: Sound }) {
   const Icon = sound.icon
@@ -10,6 +12,7 @@ function Pad({ sound }: { sound: Sound }) {
     <button
       type="button"
       className={`pad${active ? ' playing' : ''}`}
+      style={accent(sound)}
       onClick={() => (active ? stop(sound.id) : void play(sound))}
     >
       <Icon className="pad-icon" aria-hidden />
@@ -44,6 +47,7 @@ function Voting() {
         <button
           type="button"
           className="pad tick"
+          style={accent(VOTE_TICK)}
           onClick={() => {
             // Odd taps tick, even taps tock.
             void play(ticks % 2 === 0 ? VOTE_TICK : VOTE_TOCK)
@@ -59,6 +63,7 @@ function Voting() {
         <button
           type="button"
           className={`pad${isPlaying(VOTE_END.id) ? ' playing' : ''}`}
+          style={accent(VOTE_END)}
           onClick={() => {
             setTicks(0)
             void play(VOTE_END)
