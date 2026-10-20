@@ -13,8 +13,8 @@ public use.
 | `protected.mp3` | Protected | [Choir of Voices – Single Chord](https://freesound.org/people/bone666138/sounds/274121/) by bone666138 (Freesound) | CC0 | Trimmed to 3s, fade-out |
 | `slayer.mp3` | Slayer shot | [Crossbow Shot](https://freesound.org/people/spookymodem/sounds/249810/) by spookymodem + [arrow into wood](https://freesound.org/people/JoeDinesSound/sounds/534956/) by JoeDinesSound (Freesound) + synthesized 55 Hz thump | CC0 | Layered, bass-boosted and compressed for punch, 1.4s |
 | `nomination.mp3` | Nomination | [Fanfare](https://freesound.org/people/Arcorias/sounds/770801/) by Arcorias (Freesound) | CC0 | 3.3s, compressed and louder (-12 LUFS). Replaced the gavel |
-| `vote-tick.mp3` | Voting → Tick (odd taps) | [clock-tick-01](https://freesound.org/people/pbimal/sounds/534094/) by pbimal (Freesound) | CC0 | 0.3s |
-| `vote-tock.mp3` | Voting → Tock (even taps) | Same tick, pitched down to 72% | CC0 | 0.46s |
+| `vote-tick.mp3` | Voting → Tick (odd taps) | [clock-tick-01](https://freesound.org/people/pbimal/sounds/534094/) by pbimal (Freesound) + synthesized 70 Hz thump | CC0 | Click layered with a deep thump, short echo, compressed; 1.1s |
+| `vote-tock.mp3` | Voting → Tock (even taps) | Same click pitched to 72% + synthesized 52 Hz thump | CC0 | Lower partner of the tick; 1.1s |
 | `vote-end.mp3` | Voting → End vote | [bec low bell solo](https://freesound.org/people/HMTSCCSound/sounds/554655/) by HMTSCCSound (Freesound) | CC0 | Trimmed to 8s, fade-out |
 | `dun-dun-dun.mp3` | Dun dun DUN | [Dramatic Dun Dun Dun](https://pixabay.com/sound-effects/musical-dramatic-dun-dun-dun-460379/) by MrDwarf92 (Pixabay) | Pixabay Content License (free, commercial, no credit) | 3s |
 
