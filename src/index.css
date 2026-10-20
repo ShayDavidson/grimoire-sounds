@@ -24,6 +24,7 @@
 
 body {
   margin: 0;
+  overscroll-behavior: none;
   min-height: 100dvh;
   background: radial-gradient(ellipse at top, #22152a 0%, var(--bg) 60%);
 }
