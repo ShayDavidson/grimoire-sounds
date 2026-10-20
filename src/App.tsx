@@ -1,6 +1,6 @@
 import { useEffect, useReducer, useState, type CSSProperties } from 'react'
 import { ALL_SOUNDS, DAY, NIGHT, VOTE_END, VOTE_TICK, VOTE_TOCK, type Sound, type SoundGroup } from './sounds'
-import { isPlaying, play, preload, setMasterVolume, stop, stopAll, subscribe } from './audio'
+import { DEFAULT_VOLUME, MAX_VOLUME, isPlaying, play, preload, setMasterVolume, stop, stopAll, subscribe } from './audio'
 import './App.css'
 
 const accent = (sound: Sound) => ({ '--pad': sound.color }) as CSSProperties
@@ -24,7 +24,7 @@ function Pad({ sound }: { sound: Sound }) {
 
 function Group({ group }: { group: SoundGroup }) {
   return (
-    <section className="group">
+    <section className={`group ${group.id}`}>
       <h2>{group.label}</h2>
       <div className="grid">
         {group.sounds.map((sound) => (
@@ -41,7 +41,7 @@ function Voting() {
   const TickIcon = VOTE_TICK.icon
   const EndIcon = VOTE_END.icon
   return (
-    <section className="group">
+    <section className="group voting-group">
       <h2>Voting</h2>
       <div className="voting">
         <button
@@ -79,7 +79,7 @@ function Voting() {
 
 function App() {
   const [, rerender] = useReducer((n: number) => n + 1, 0)
-  const [volume, setVolume] = useState(0.8)
+  const [volume, setVolume] = useState(DEFAULT_VOLUME)
 
   useEffect(() => {
     preload(ALL_SOUNDS)
@@ -93,7 +93,6 @@ function App() {
     <main className="app">
       <header className="header">
         <h1>Grimoire Sounds</h1>
-        <p className="subtitle">Sound effects for Blood on the Clocktower</p>
       </header>
 
       <section className="controls">
@@ -102,8 +101,8 @@ function App() {
           <input
             type="range"
             min={0}
-            max={1}
-            step={0.01}
+            max={MAX_VOLUME}
+            step={0.05}
             value={volume}
             onChange={(e) => {
               const v = Number(e.target.value)
@@ -111,6 +110,7 @@ function App() {
               setMasterVolume(v)
             }}
           />
+          <span className="volume-value">{Math.round(volume * 100)}%</span>
         </label>
         <button type="button" className="stop-all" onClick={stopAll}>
           Stop all

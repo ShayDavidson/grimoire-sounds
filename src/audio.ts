@@ -1,10 +1,14 @@
 import type { Sound } from './sounds'
 
-// One Web Audio graph for the whole app: every sound → its own gain → master gain → speakers.
+// One Web Audio graph for the whole app: every sound → its own gain → master gain → limiter → speakers.
+// The master can boost above 100% (to cut through background music); the limiter stops it clipping.
 // Browsers only allow audio after a user gesture, so the context is created on first play.
 
 let ctx: AudioContext | null = null
 let master: GainNode | null = null
+export const MAX_VOLUME = 3
+export const DEFAULT_VOLUME = 1.5
+let masterLevel = DEFAULT_VOLUME
 const buffers = new Map<string, Promise<AudioBuffer>>()
 const playing = new Map<string, { stop: () => void }>()
 const listeners = new Set<() => void>()
@@ -13,7 +17,14 @@ function context() {
   if (!ctx) {
     ctx = new AudioContext()
     master = ctx.createGain()
-    master.connect(ctx.destination)
+    master.gain.value = masterLevel
+    const limiter = ctx.createDynamicsCompressor()
+    limiter.threshold.value = -3
+    limiter.knee.value = 0
+    limiter.ratio.value = 20
+    limiter.attack.value = 0.002
+    limiter.release.value = 0.2
+    master.connect(limiter).connect(ctx.destination)
   }
   if (ctx.state === 'suspended') void ctx.resume()
   return { ctx, master: master! }
@@ -33,7 +44,8 @@ export function isPlaying(id: string) {
 }
 
 export function setMasterVolume(v: number) {
-  const { ctx, master } = context()
+  masterLevel = v
+  if (!ctx || !master) return
   master.gain.setTargetAtTime(v, ctx.currentTime, 0.02)
 }
 
