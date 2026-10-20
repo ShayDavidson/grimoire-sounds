@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
 }
 
 .volume {
@@ -54,10 +54,46 @@
   font-weight: 600;
 }
 
+.group {
+  margin-top: 28px;
+}
+
+.group h2 {
+  font-family: var(--serif);
+  font-weight: normal;
+  color: var(--gold);
+  font-size: 1.25rem;
+  margin: 0 0 10px;
+  letter-spacing: 0.04em;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 12px;
+}
+
+.voting {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 12px;
+}
+
+.voting .pad {
+  aspect-ratio: auto;
+  min-height: 150px;
+}
+
+.pad.tick:active {
+  background: var(--surface-hover);
+  border-color: var(--gold);
+}
+
+.tick-count {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--gold);
+  line-height: 1;
 }
 
 .pad {
@@ -85,10 +121,22 @@
   box-shadow: 0 0 24px var(--blood-glow), inset 0 0 18px var(--blood-glow);
 }
 
+.pad-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--gold);
+  stroke-width: 1.5;
+}
+
+.pad.playing .pad-icon {
+  color: #ff6b6b;
+}
+
 .pad-label {
   font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   text-align: center;
+  line-height: 1.2;
 }
 
 .pad-kind {

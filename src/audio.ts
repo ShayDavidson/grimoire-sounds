@@ -52,60 +52,30 @@ function load(src: string) {
   return buf
 }
 
-function synth(kind: NonNullable<Sound['synth']>, out: GainNode, loop: boolean) {
-  const { ctx } = context()
-  const t = ctx.currentTime
-  if (kind === 'bell') {
-    const nodes = [1, 2.76, 5.4].map((ratio, i) => {
-      const osc = ctx.createOscillator()
-      const g = ctx.createGain()
-      osc.frequency.value = 220 * ratio
-      g.gain.setValueAtTime(0.4 / (i + 1), t)
-      g.gain.exponentialRampToValueAtTime(0.0001, t + 3)
-      osc.connect(g).connect(out)
-      osc.start(t)
-      osc.stop(t + 3)
-      return osc
-    })
-    return { duration: 3, stop: () => nodes.forEach((n) => n.stop()) }
-  }
-  const nodes = [55, 82.4, 110.3].map((f) => {
-    const osc = ctx.createOscillator()
-    osc.type = 'sawtooth'
-    osc.frequency.value = f
-    const filter = ctx.createBiquadFilter()
-    filter.type = 'lowpass'
-    filter.frequency.value = 300
-    osc.connect(filter).connect(out)
-    osc.start(t)
-    if (!loop) osc.stop(t + 6)
-    return osc
-  })
-  return { duration: loop ? Infinity : 6, stop: () => nodes.forEach((n) => n.stop()) }
+
+/** Fetch and decode every sound up front so the first tap plays instantly. */
+export function preload(sounds: Sound[]) {
+  sounds.forEach((s) => void load(import.meta.env.BASE_URL + s.src).catch(() => {}))
 }
 
 export async function play(sound: Sound) {
   const { ctx, master } = context()
-  stop(sound.id)
+  if (!sound.stack) stop(sound.id)
 
   const gain = ctx.createGain()
   gain.gain.value = sound.volume ?? 1
   gain.connect(master)
   const loop = sound.kind === 'loop'
 
-  let stopSource: () => void
-  let duration: number
-  if (sound.src) {
-    const source = ctx.createBufferSource()
-    source.buffer = await load(import.meta.env.BASE_URL + sound.src)
-    source.loop = loop
-    source.connect(gain)
-    source.start()
-    stopSource = () => source.stop()
-    duration = loop ? Infinity : source.buffer.duration
-  } else {
-    ;({ stop: stopSource, duration } = synth(sound.synth ?? 'bell', gain, loop))
-  }
+  const source = ctx.createBufferSource()
+  source.buffer = await load(import.meta.env.BASE_URL + sound.src)
+  source.loop = loop
+  source.connect(gain)
+  source.start()
+  // Stacked sounds (rapid repeats) just play out; they aren't tracked or stoppable.
+  if (sound.stack) return
+  const stopSource = () => source.stop()
+  const duration = loop ? Infinity : source.buffer.duration
 
   const entry = {
     stop: () => {

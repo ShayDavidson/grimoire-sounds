@@ -1,5 +1,8 @@
-// The sound catalog. Add a file to public/sounds/ and an entry here.
-// Sounds without a `src` are synthesized (placeholders until real files are chosen).
+// The sound catalog. Put the file in public/sounds/ and add an entry here.
+// All current sounds were generated with ElevenLabs Sound Effects v2; prompts are in docs/wiki/sounds.md.
+
+import type { LucideIcon } from 'lucide-react'
+import { Axe, Bell, Crosshair, Drama, Gavel, Hand, Moon, ShieldPlus, Skull, Sunset } from 'lucide-react'
 
 export type SoundKind = 'oneshot' | 'loop'
 
@@ -7,14 +10,57 @@ export interface Sound {
   id: string
   label: string
   kind: SoundKind
+  icon: LucideIcon
   /** Path under public/, without a leading slash, e.g. "sounds/bell.mp3". */
-  src?: string
-  /** Placeholder synth used when there is no file yet. */
-  synth?: 'bell' | 'drone'
+  src: string
   volume?: number
+  /** Each tap plays a new copy instead of restarting/stopping (e.g. the vote tick). */
+  stack?: boolean
 }
 
-export const SOUNDS: Sound[] = [
-  { id: 'test-bell', label: 'Test bell', kind: 'oneshot', synth: 'bell' },
-  { id: 'test-drone', label: 'Test drone', kind: 'loop', synth: 'drone', volume: 0.5 },
-]
+export interface SoundGroup {
+  id: string
+  label: string
+  sounds: Sound[]
+}
+
+export const NIGHT: SoundGroup = {
+  id: 'night',
+  label: 'Night',
+  sounds: [
+    { id: 'night-approaching', label: 'Night approaching', kind: 'loop', icon: Sunset, src: 'sounds/night-approaching.mp3', volume: 0.6 },
+    { id: 'night-falls', label: 'Night falls', kind: 'oneshot', icon: Moon, src: 'sounds/night-falls.mp3' },
+    { id: 'demon-kill', label: 'Killed by the Demon', kind: 'oneshot', icon: Skull, src: 'sounds/demon-kill.mp3' },
+    { id: 'protected', label: 'Protected', kind: 'oneshot', icon: ShieldPlus, src: 'sounds/protected.mp3' },
+  ],
+}
+
+export const DAY: SoundGroup = {
+  id: 'day',
+  label: 'Day',
+  sounds: [
+    { id: 'slayer', label: 'Slayer shot', kind: 'oneshot', icon: Crosshair, src: 'sounds/slayer.mp3' },
+    { id: 'nomination', label: 'Nomination', kind: 'oneshot', icon: Gavel, src: 'sounds/nomination.mp3' },
+    { id: 'execution', label: 'Executed', kind: 'oneshot', icon: Axe, src: 'sounds/execution.mp3' },
+    { id: 'dun-dun-dun', label: 'Dun dun DUN', kind: 'oneshot', icon: Drama, src: 'sounds/dun-dun-dun.mp3' },
+  ],
+}
+
+export const VOTE_TICK: Sound = {
+  id: 'vote-tick',
+  label: 'Tick',
+  kind: 'oneshot',
+  icon: Hand,
+  src: 'sounds/vote-tick.mp3',
+  stack: true,
+}
+
+export const VOTE_END: Sound = {
+  id: 'vote-end',
+  label: 'End vote',
+  kind: 'oneshot',
+  icon: Bell,
+  src: 'sounds/vote-end.mp3',
+}
+
+export const ALL_SOUNDS: Sound[] = [...NIGHT.sounds, ...DAY.sounds, VOTE_TICK, VOTE_END]
