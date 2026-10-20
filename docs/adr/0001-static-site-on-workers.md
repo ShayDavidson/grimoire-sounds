@@ -1,4 +1,4 @@
-# ADR 0001 — Static site on Cloudflare Workers
+# ADR 0001 — Static site on Cloudflare Workers (superseded by [0002](0002-github-pages.md))
 
 **Context.** A public soundboard used at the table on phones. No accounts or server state yet.
 

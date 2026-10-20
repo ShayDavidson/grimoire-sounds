@@ -1,6 +1,6 @@
 # Grimoire Sounds
 
-A BOTC soundboard (Vite + React + TS on Cloudflare Workers static assets).
+A BOTC soundboard (Vite + React + TS on GitHub Pages).
 
 - How it works: `docs/wiki/`. Decisions: `docs/STATUS.md`. Next tasks: `TODO.md`.
 - Add sounds by putting files in `public/sounds/` and entries in `src/sounds.ts`. Only add audio that is
